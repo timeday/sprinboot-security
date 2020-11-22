@@ -32,14 +32,14 @@ public class MyauthenticationProvider extends DaoAuthenticationProvider {
      * @throws AuthenticationException
      */
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-        String status = "1";
+        /*String status = "1";
         String userName = authentication.getName();
         String passWord = (String) authentication.getCredentials();
         Users users = new Users();
         users.setId(1);
         users.setUsername(userName);
         users.setPassword(passWord);
-        /**
+        *//**
          *  UsernameNotFoundException 用户找不到
          BadCredentialsException 坏的凭据
          AccountStatusException 用户状态异常它包含如下子类
@@ -47,15 +47,15 @@ public class MyauthenticationProvider extends DaoAuthenticationProvider {
          LockedException 账户锁定
          DisabledException 账户不可用
          CredentialsExpiredException 证书过期
-         */
+         *//*
         if (users == null) {
             System.out.println("用户不存在！");
             throw new UsernameNotFoundException("用户不存在！");
         }
         // 加密过程在这里体现,matches(CharSequence rawPassword, String encodedPassword)
-		/*if (!passwordEncoder.matches(passWord, user.getPassword())) {
+		*//*if (!passwordEncoder.matches(passWord, user.getPassword())) {
 			throw new BadCredentialsException("密码错误！");
-		}*/
+		}*//*
         if (!users.getPassword().equals(passWord)) {
             System.out.println("密码错误！");
             throw new BadCredentialsException("密码错误！");
@@ -68,7 +68,9 @@ public class MyauthenticationProvider extends DaoAuthenticationProvider {
         }
         List<GrantedAuthority> auths =
                 AuthorityUtils.commaSeparatedStringToAuthorityList("admin,admins,ROLE_sale");
-        return new UsernamePasswordAuthenticationToken(users, passWord, auths);
+        return new UsernamePasswordAuthenticationToken(users, passWord, auths);*/
+        // 可以在此处覆写整个登录认证逻辑
+        return super.authenticate(authentication);
     }
     public boolean supports(Class<?> arg0) {
         return true;
