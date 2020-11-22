@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.security.freemarker</groupId>
-    <artifactId>security-freemarker</artifactId>
+    <artifactId>security-web</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>security-freemarker</name>
-    <description>Demo project for Spring Boot</description>
+    <name>security-web</name>
+    <description>表单登录、手机号码登录、图片验证码</description>
 
     <properties>
         <java.version>1.8</java.version>
