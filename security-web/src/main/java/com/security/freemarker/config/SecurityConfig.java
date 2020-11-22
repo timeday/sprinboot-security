@@ -1,9 +1,6 @@
 package com.security.freemarker.config;
 
-import com.security.freemarker.authentication.AccessDeniedAuthenticationHandler;
-import com.security.freemarker.authentication.DemoAuthenticationFailureHandler;
-import com.security.freemarker.authentication.DemoAuthenticationSuccessHandler;
-import com.security.freemarker.authentication.MyLogoutSuccessHandler;
+import com.security.freemarker.authentication.*;
 import com.security.freemarker.filter.SmsCodeFilter;
 import com.security.freemarker.filter.ValidateCodeFilter;
 import com.security.freemarker.properties.CodeProperties;
@@ -70,10 +67,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-    /* 配置认证*/
+
+    /* 配置登录*/
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+        //第一种 通过实现 userDetailsService接口 验证登录 MyUserDetailsService
+        //auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+        //第二种 将验证过程交给自定义验证工具
+        auth.authenticationProvider(new MyauthenticationProvider(userDetailsService));
     }
 
 
