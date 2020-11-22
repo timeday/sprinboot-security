@@ -28,9 +28,10 @@ public class DemoAuthenticationSuccessHandler implements AuthenticationSuccessHa
             throws IOException, ServletException {
         logger.info("登录成功");
 
-        httpServletResponse.setContentType("application/json;charset=UTF-8");
+      /*  httpServletResponse.setContentType("application/json;charset=UTF-8");
         httpServletResponse.getWriter().write(objectMapper.writeValueAsString(authentication));
-
+*/
+        httpServletResponse.sendRedirect("/success");
 
     }
 }
