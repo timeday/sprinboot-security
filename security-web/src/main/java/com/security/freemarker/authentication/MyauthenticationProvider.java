@@ -69,7 +69,7 @@ public class MyauthenticationProvider extends DaoAuthenticationProvider {
         List<GrantedAuthority> auths =
                 AuthorityUtils.commaSeparatedStringToAuthorityList("admin,admins,ROLE_sale");
         return new UsernamePasswordAuthenticationToken(users, passWord, auths);*/
-        // 可以在此处覆写整个登录认证逻辑
+        // 可以在此处覆写整个登录认证逻辑 TODO
         return super.authenticate(authentication);
     }
     public boolean supports(Class<?> arg0) {

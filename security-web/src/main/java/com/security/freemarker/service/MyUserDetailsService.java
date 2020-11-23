@@ -31,6 +31,7 @@ public class MyUserDetailsService implements UserDetailsService {
      * @throws UsernameNotFoundException
      */
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        //整个登录认证逻辑 TODO
         //调用usersMapper方法，根据用户名查询数据库
        /* QueryWrapper<Users> wrapper = new QueryWrapper();
         // where username=?
